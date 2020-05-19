@@ -7,12 +7,12 @@ def match_segmentation_2(pred, gt):
 
     num1 = np.max(pred)
     num2 = np.max(gt)
-    confcounts = np.zeros((int(num1), num2))
+    confcounts = np.zeros((int(num1)+1, num2+1))
 
     for i in range(tx):
         for j in range(ty):
-            u = pred[i, j] - 1
-            v = gt[i, j] - 1
+            u = pred[i, j]
+            v = gt[i, j]
 
             confcounts[u, v] = confcounts[u, v] + 1
 
