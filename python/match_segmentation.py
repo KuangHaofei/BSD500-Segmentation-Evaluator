@@ -72,9 +72,7 @@ def match_segmentation(pred, gt):
             gtjresj = confcounts[j, i]
             if gtj + resj - gtjresj:
                 value = gtjresj / (gtj + resj - gtjresj)
-            else:
-                value = np.nan
-            accuracies[j, i] = value
+                accuracies[j, i] = value
     matches[cnt:cnt + np.max(gt), :] = accuracies[1:, 1:]
 
     return matches.T
